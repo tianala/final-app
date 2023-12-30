@@ -1,0 +1,14 @@
+{% extends 'application/base.html' %}
+
+{% block title %}Create Product{% endblock %}
+
+{% block content %}
+    {% include 'application/menu.html' %}
+    <h2>Create Product</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    {% include 'application/footer.html' %}
+{% endblock %}

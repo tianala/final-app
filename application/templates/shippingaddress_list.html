@@ -1,0 +1,15 @@
+{% extends 'application/base.html' %}
+
+{% block title %}Shipping Address List{% endblock %}
+
+{% block content %}
+    {% include 'application/menu.html' %}
+    <h2>Shipping Address List</h2>
+    <ul>
+        {% for shipping_address in shipping_addresses %}
+            <li>{{ shipping_address.order }} - Address: {{ shipping_address.address }}</li>
+        {% endfor %}
+    </ul>
+    {% include 'application/pagination.html' %}
+    {% include 'application/footer.html' %}
+{% endblock %}

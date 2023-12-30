@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %} <!-- Add this line to load the static tag -->
+
+{% block navbar %}
+  <section class="navbar">
+    <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
+    <a href='{% url "home" %}' class="btn" id="active"> Home </a>
+    <a href='{% url "customer-list" %}' class="btn"> Customer </a>
+    <a href='{% url "product-list" %}' class="btn"> Products</a>
+    <a href='{% url "order-list" %}' class="btn"> Orders </a>
+  </section>
+{% endblock navbar %}
+
+{% block content %}
+    {% include 'application/menu.html' %}
+    <h2>Customer List</h2>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                {{ customer.name }} - {{ customer.email }}
+                (<a href="{% url 'customer-detail' customer.id %}">View</a>)
+                (<a href="{% url 'edit-customer' customer.id %}">Edit</a>)
+                (<a href="{% url 'delete-customer' customer.id %}">Delete</a>)
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create-customer' %}">Add Customer</a>
+    {% include 'application/pagination.html' %}
+    {% include 'application/footer.html' %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %} <!-- Add this line to load the static tag -->
+
+{% block navbar %}
+  <section class="navbar">
+    <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
+    <a href='{% url "home" %}' class="btn" id="active">
+      <i class="fas fa-home fa-2x"></i> <!-- Font Awesome home icon with larger size -->
+    </a>
+    <a href='{% url "customer-list" %}' class="btn">
+      <i class="fas fa-user fa-2x"></i> <!-- Font Awesome user icon with larger size -->
+    </a>
+    <a href='{% url "product-list" %}' class="btn">
+      <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
+    </a>
+    <a href='{% url "order-list" %}' class="btn">
+      <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
+    </a>
+  </section>
+{% endblock navbar %}
+
+{% block content %}
+  <!-- Your content block goes here -->
+{% endblock content %}

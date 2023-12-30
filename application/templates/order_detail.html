@@ -1,0 +1,17 @@
+{% extends 'application/base.html' %}
+
+{% block title %}Order Detail{% endblock %}
+
+{% block content %}
+    {% include 'application/menu.html' %}
+    <h2>Order {{ order }}</h2>
+    <p>Order Date: {{ order.order_date }}</p>
+    <p>Customer: {{ order.customer }}</p>
+    <h3>Order Items</h3>
+    <ul>
+        {% for item in order.orderitem_set.all %}
+            <li>{{ item.product }} - Quantity: {{ item.quantity }} - Unit Price: {{ item.unit_price }}</li>
+        {% endfor %}
+    </ul>
+    {% include 'application/footer.html' %}
+{% endblock %}

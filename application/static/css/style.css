@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab';
+}
+
+body {
+  background: linear-gradient(to right, rgba(128, 235, 158, 1), rgb(240, 237, 237));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  min-height: calc(80vh - 10vh);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.logo {
+  max-width: 260px;
+  height: auto;
+  margin-right: 660px;
+}
+
+.navbar {
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  display: flex;
+  align-items:flex-end;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 2px; /* Adjust padding as needed */
+  justify-content: right;
+  height: 80px; /* Adjust the height as needed */
+}
+
+.navbar a {
+  margin: 0 43px; /* Adjust the margin for spaces between buttons */
+  float: none;
+  display: inline-block;
+  color: rgb(68, 67, 67); /* Set the color to grey */
+  padding: 20px 10px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 70px;
+  transition: 0.1s;
+}
+
+.navbar a:hover {
+  background-color: whitesmoke;
+  color: black;
+  transition: 0.2s ease-in-out;
+  border-radius: 70px; /* Adjust the border radius as needed */
+}
+
+/* .navbar #active {
+  border-radius: 10px;
+  background-color: whitesmoke;
+  color: black;
+} */
+
+footer {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(57, 55, 55), 0, 0;
+  text-align: center;
+  padding: 20px 0;
+}
+
+
+.home-content {
+  min-height: 50vh;
+}

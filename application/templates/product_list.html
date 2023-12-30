@@ -1,0 +1,47 @@
+<!-- templates/application/product_list.html -->
+{% extends 'base.html' %}
+
+{% load static %} <!-- Add this line to load the static tag -->
+
+{% block navbar %}
+  <section class="navbar">
+    <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
+    <a href='{% url "home" %}' class="btn" id="active"> Home </a>
+    <a href='{% url "customer-list" %}' class="btn"> Customer </a>
+    <a href='{% url "product-list" %}' class="btn"> Products</a>
+    <a href='{% url "order-list" %}' class="btn"> Orders </a>
+  </section>
+{% endblock navbar %}
+
+{% block content %}
+  <h2>Product List</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              {% comment %} <a href="{% url 'product-orders' product.id %}" class="btn btn-info btn-sm">View Orders</a> {% endcomment %}
+              <a href="{% url 'edit-product' product.id %}" class="btn btn-warning btn-sm">Edit</a>
+              <a href="{% url 'delete-product' product.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a href="{% url 'create-product' %}" class="btn btn-success">Create Product</a>
+{% endblock %}
