@@ -24,6 +24,8 @@ urlpatterns = [
     # path('product/<int:product_id>/', product_detail, name='product-detail'),
     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add-to-cart'),
     path('cart/', CartListView.as_view(), name='cart-list'),
+    path('decrease-quantity/<int:cart_item_id>/', views.decrease_quantity, name='decrease-quantity'),
+    path('increase-quantity/<int:cart_item_id>/', views.increase_quantity, name='increase-quantity'),
 
     # Order URLs
     path('orders/', OrderListView.as_view(), name='order-list'),

@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm, PaymentForm
 from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
+from django.http import JsonResponse
 
 
 def home(request):
@@ -43,7 +44,7 @@ class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
     template_name = 'product_list.html'
-    paginate_by = 9
+    paginate_by = 12
     json_file_path = 'electronics_data.json'
 
 class ProductCreateView(CreateView):
@@ -106,6 +107,16 @@ class CartListView(ListView):
     template_name = 'cart_list.html'
     context_object_name = 'cart_items'
     paginate_by = 10
+
+def decrease_quantity(request, cart_item_id):
+    # Implement the logic to decrease the quantity for the specified cart item
+    # Update your Cart model or session accordingly
+    return JsonResponse({'success': True})
+
+def increase_quantity(request, cart_item_id):
+    # Implement the logic to increase the quantity for the specified cart item
+    # Update your Cart model or session accordingly
+    return JsonResponse({'success': True})
 
 
 def your_view(request):

@@ -22,13 +22,19 @@
     <a href='{% url "product-list" %}' class="btn">
       <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
     </a>
-  <a href="{% url 'cart-list' %}" class="btn">
-      <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
-      <span class="cart-count">{% if cart_count > 0 %}{{ cart_count }}{% endif %}</span>
-   </a>
+    <a href="{% url 'cart-list' %}" class="btn">
+      <i class="fas fa-shopping-cart fa-2x"></i>
+      <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
+    </a>
   </section>
+  <!-- First bar after the navbar -->
+  <div class="additional-bar"></div>
+  <!-- Add other content or bars as needed -->
 {% endblock navbar %}
 
 {% block content %}
+  <!-- Content block -->
+{% endblock %}
 
-{% endblock content %}
+<!-- Add another bar after the content -->
+

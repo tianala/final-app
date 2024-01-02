@@ -5,8 +5,7 @@
 {% block navbar %}
   <section class="navbar">
     <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
-    
-    <!-- Add the search bar here -->
+
     <div class="search-container">
       <input type="text" placeholder="Search...">
       <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -21,10 +20,12 @@
     <a href='{% url "product-list" %}' class="btn">
       <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
     </a>
-    <a href='{% url "cart-list" %}' class="btn">
-      <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
+    <a href="{% url 'cart-list' %}" class="btn">
+      <i class="fas fa-shopping-cart fa-2x"></i>
+      <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
     </a>
   </section>
+  <div class="additional-bar"></div>
 {% endblock navbar %}
 
 {% block content %}
@@ -35,24 +36,27 @@
         <div style="float: left;">
           <strong style="font-size: 20px;">{{ customer.name }}</strong> - <span style="font-size: 22px;">{{ customer.email }}</span><br>
           <a href="{% url 'customer-detail' customer.id %}">
-            <i class="fas fa-eye" title="View" style="font-size: 23px; color: grey;"></i>
+            <div class = "option-icon">
+            <i class="fas fa-eye" title="View" style="font-size: 20px; color: grey;"></i>
           </a>
           <span class="vertical-line"></span>
           <a href="{% url 'edit-customer' customer.id %}">
-            <i class="fas fa-edit" title="Edit" style="font-size: 23px; color: grey;"></i>
+            &nbsp;&nbsp;&nbsp;
+            <i class="fas fa-edit" title="Edit" style="font-size: 20px; color: grey;"></i>
           </a>
           <span class="vertical-line"></span>
           <a href="{% url 'delete-customer' customer.id %}">
-            <i class="fas fa-trash-alt" title="Delete" style="font-size: 23px; color: grey;"></i>
+            &nbsp;&nbsp;&nbsp;
+            <i class="fas fa-trash-alt" title="Delete" style="font-size: 20px; color: grey;"></i>
           </a>
+          </div>
         </div>
         
         <div style="clear: both;"></div> <!-- Clear the float to prevent layout issues -->
       </div>
     {% endfor %}
   </div>
-  <a href="{% url 'create-customer' %}">
-    <i class="fas fa-user-plus" title="Add Customer" style="font-size: 18px; color: #3498db;"></i>
-  </a>
+  <br>
+  <br>
   {% include 'includes/pagination.html' %}
 {% endblock %}

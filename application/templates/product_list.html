@@ -5,8 +5,7 @@
 {% block navbar %}
   <section class="navbar">
     <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
-    
-    <!-- Add the search bar here -->
+
     <div class="search-container">
       <input type="text" placeholder="Search...">
       <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -21,10 +20,24 @@
     <a href='{% url "product-list" %}' class="btn">
       <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
     </a>
-    <a href='{% url "cart-list" %}' class="btn">
-      <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
+    <a href="{% url 'cart-list' %}" class="btn">
+      <i class="fas fa-shopping-cart fa-2x"></i>
+      <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
     </a>
   </section>
+  <div class="additional-bar">
+    <p>Search result for 'Electronics'</p>
+    <div class="product-options">
+      <p>
+          Relevance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="vertical-line"></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top Sales&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="vertical-line"></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prices&nbsp;
+          <i class="fas fa-caret-up caret-up-down"></i>
+          <i class="fas fa-caret-down caret-up-down"></i>
+      </p>
+  </div>
+  </div>
+
 {% endblock navbar %}
 
 {% block content %}
@@ -49,6 +62,7 @@
     {% endfor %}
   </section>
   <div>
+    <br>
     {% include 'includes/pagination.html' %}
   </div>
 {% endblock %}

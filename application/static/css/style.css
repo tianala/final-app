@@ -25,10 +25,9 @@ main {
 .logo {
   max-width: 260px;
   height: auto;
-  margin-right: 140px; /* Adjust the margin to move the logo to the left */
+  margin-right: 140px;
 }
 
-/* Add this CSS to your existing styles */
 
 .search-container {
   display: flex;
@@ -75,11 +74,6 @@ main {
   color: #333; /* Change the color of the icon on hover */
 }
 
-
-
-
-
-
 .navbar {
   background-color: rgba(255, 255, 255, 0.6);
   overflow: hidden;
@@ -112,37 +106,48 @@ main {
   border-radius: 70px; /* Adjust the border radius as needed */
 }
 
-/* .search-container {
+/* Add this to your CSS file or create a new one */
+.additional-bar {
+  height: 50px;
+  background-color: rgba(198, 197, 197, 0.6);
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.additional-bar p {
+  margin: 0;
+  padding-right: 10px; /* Add right padding to the text */
+  margin-left:40px;
+  font-size: 120%;
+}
+
+.product-options {
+  margin-left:700px;
+
+}
+
+/* .product-options {
   display: flex;
   align-items: center;
-  margin-right: auto; 
-} 
-
-.search-bar {
-  position: relative;
-  width: 100%;
 }
 
-.search-input-wrapper {
-  position: relative;
+.product-options p {
+  margin: 0;
+  font-size: 16px;
 }
 
-.search-input-field {
-  padding: 11px;
-  font-size: 18px;
-  border: 1px solid #ccc;
-  border-radius: 35px;
-  width: 550px;
-  padding-right: 40px;
+.vertical-line {
+  border-left: 1px solid #333;
+  height: 14px;
+  margin: 0 8px;
+  display: inline-block;
 }
 
-.button-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 22px;
-  right: 13px;
+.caret-up-down {
+  margin-left: 4px;
+  cursor: pointer;
 } */
 
 footer {
@@ -199,6 +204,8 @@ footer {
   flex-wrap: wrap; /* Allows products to wrap to the next line if there's not enough space */
   justify-content: space-between; /* Distributes products evenly along the row */
   padding: 20px; /* Adjust the padding as needed */
+  margin-top: -60px;
+
 }
 
 .product-box {
@@ -216,6 +223,7 @@ footer {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  margin-top: -50px;
 }
 
 .customer-box {
@@ -274,8 +282,6 @@ footer {
   display: inline-block;
 }
 
-
-
 .add-to-order-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -319,8 +325,9 @@ h2 {
   border-radius: 10px; /* Add rounded corners */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   margin: 10px auto; 
-  padding: 40px; /* Adjust the padding inside the product box */
-  width: calc(70.70% - 30px); /* Adjust the width of each product box */
+  padding: 30px; /* Adjust the padding inside the product box */
+  width: calc(70.70% - 40px); /* Adjust the width of each product box */
+  height: 130px;
 }
 
 /* Style for Cart Container */
@@ -328,17 +335,9 @@ h2 {
   display: flex;
   flex-wrap: wrap; /* Allows products to wrap to the next line if there's not enough space */
   justify-content: space-between; /* Distributes products evenly along the row */
-  padding: 20px; /* Add top margin to the cart container */
+  padding: 15px; /* Add top margin to the cart container */
+  margin-top: -60px;
 }
-
-/* Style for Cart Item */
-/* .cart-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-} */
-
-/* Style for Product Name */
 .product-name h2 {
   margin-bottom: 5px; /* Add bottom margin to the product name */
 }
@@ -350,7 +349,6 @@ h2 {
   font-size: 20%;
 }
 
-/* Style for Horizontal Line */
 hr {
   border: 0;
   border-top: 1px solid #ddd; /* Add a horizontal line with a light color */
@@ -358,9 +356,31 @@ hr {
   margin-bottom: 10px; /* Add bottom margin below the horizontal line */
 }
 
+.option-icon {
+  position: absolute;
+  right: 350px;
+  margin-top: -10px;
+}
 
-.add-to-order-btn:hover {
-  background-color: #45a049; /* Darker green on hover */
+.quantity-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #333;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
+}
+
+.quantity-btn:hover {
+  color: #555;
+}
+
+.quantity-container {
+  position: absolute;
+  right: 350px;
+  margin-top: -40px;
 }
 
 .pagination {
@@ -368,10 +388,13 @@ hr {
   justify-content: center;
   list-style: none;
   padding: 0;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  overflow: hidden; /* Hide overflowing content */
 }
 
 .page-item {
   margin-right: 5px;
+  
 }
 
 .page-link {
@@ -379,18 +402,16 @@ hr {
   padding: 5px 10px;
   text-decoration: none;
   border: 1px solid #dee2e6;
-  color: #007bff;
+  color: #3d935a;
   background-color: #fff;
+  border-radius: 8px; 
 }
 
 .page-link:hover {
   background-color: #f0f0f0;
 }
 
-/* Adjusted selectors to accommodate classes with spaces */
 .page-item.disabled > .page-link {
-  /* Styles for disabled pagination item */
-  /* display: none  ; */
   color: #6c757d;
   pointer-events: none;
   cursor: not-allowed;
@@ -399,15 +420,12 @@ hr {
 }
 
 .page-item.active > .page-link {
-  /* Styles for active pagination item */
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #3d935a;
+  border-color: #3d935a;
   cursor: default;
   z-index: 3;
 }
-
-/* Social Icons for footer */
 
 .social-icons a {
   color: rgb(57, 55, 55), 0, 0;
