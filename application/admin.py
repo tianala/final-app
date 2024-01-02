@@ -1,6 +1,6 @@
 # application/admin.py
 from django.contrib import admin
-from .models import Customer, Product, Order, OrderItem, ShippingAddress, Payment
+from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
@@ -14,10 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['order_date', 'customer']
 
-@admin.register(OrderItem)
-class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ['order', 'product', 'quantity', 'unit_price']
-
 @admin.register(ShippingAddress)
 class ShippingAddressAdmin(admin.ModelAdmin):
     list_display = ['order', 'address', 'city', 'state', 'zipcode', 'country']
@@ -25,3 +21,7 @@ class ShippingAddressAdmin(admin.ModelAdmin):
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
     list_display = ['order', 'payment_date', 'amount', 'payment_method']
+
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ['product', 'quantity']

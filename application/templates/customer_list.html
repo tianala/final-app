@@ -5,27 +5,54 @@
 {% block navbar %}
   <section class="navbar">
     <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
-    <a href='{% url "home" %}' class="btn" id="active"> Home </a>
-    <a href='{% url "customer-list" %}' class="btn"> Customer </a>
-    <a href='{% url "product-list" %}' class="btn"> Products</a>
-    <a href='{% url "order-list" %}' class="btn"> Orders </a>
+    
+    <!-- Add the search bar here -->
+    <div class="search-container">
+      <input type="text" placeholder="Search...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <a href='{% url "home" %}' class="btn" id="active">
+      <i class="fas fa-home fa-2x"></i> <!-- Font Awesome home icon with larger size -->
+    </a>
+    <a href='{% url "customer-list" %}' class="btn">
+      <i class="fas fa-user fa-2x"></i> <!-- Font Awesome user icon with larger size -->
+    </a>
+    <a href='{% url "product-list" %}' class="btn">
+      <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
+    </a>
+    <a href='{% url "cart-list" %}' class="btn">
+      <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
+    </a>
   </section>
 {% endblock navbar %}
 
 {% block content %}
-    {% include 'application/menu.html' %}
-    <h2>Customer List</h2>
-    <ul>
-        {% for customer in customers %}
-            <li>
-                {{ customer.name }} - {{ customer.email }}
-                (<a href="{% url 'customer-detail' customer.id %}">View</a>)
-                (<a href="{% url 'edit-customer' customer.id %}">Edit</a>)
-                (<a href="{% url 'delete-customer' customer.id %}">Delete</a>)
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'create-customer' %}">Add Customer</a>
-    {% include 'application/pagination.html' %}
-    {% include 'application/footer.html' %}
+  <div class="customer-container">
+    {% for customer in customers %}
+      <div class="customer-box">
+        <i class="fas fa-user-circle fa-5x" style="float: left; margin-right: 20px;"></i> <!-- Font Awesome user circle icon -->
+        <div style="float: left;">
+          <strong style="font-size: 20px;">{{ customer.name }}</strong> - <span style="font-size: 22px;">{{ customer.email }}</span><br>
+          <a href="{% url 'customer-detail' customer.id %}">
+            <i class="fas fa-eye" title="View" style="font-size: 23px; color: grey;"></i>
+          </a>
+          <span class="vertical-line"></span>
+          <a href="{% url 'edit-customer' customer.id %}">
+            <i class="fas fa-edit" title="Edit" style="font-size: 23px; color: grey;"></i>
+          </a>
+          <span class="vertical-line"></span>
+          <a href="{% url 'delete-customer' customer.id %}">
+            <i class="fas fa-trash-alt" title="Delete" style="font-size: 23px; color: grey;"></i>
+          </a>
+        </div>
+        
+        <div style="clear: both;"></div> <!-- Clear the float to prevent layout issues -->
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'create-customer' %}">
+    <i class="fas fa-user-plus" title="Add Customer" style="font-size: 18px; color: #3498db;"></i>
+  </a>
+  {% include 'includes/pagination.html' %}
 {% endblock %}

@@ -1,3 +1,4 @@
+<!-- application/cart_list.html -->
 {% extends 'base.html' %}
 
 {% load static %} <!-- Add this line to load the static tag -->
@@ -22,13 +23,33 @@
     <a href='{% url "product-list" %}' class="btn">
       <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
     </a>
-  <a href="{% url 'cart-list' %}" class="btn">
+  {% comment %} <a href="{% url 'cart-list' %}" class="btn">
       <i class="fas fa-shopping-cart fa-2x"></i> <!-- Font Awesome shopping cart icon with larger size -->
       <span class="cart-count">{% if cart_count > 0 %}{{ cart_count }}{% endif %}</span>
-   </a>
+   </a> {% endcomment %}
+   <a href="{% url 'cart-list' %}" class="btn">
+    <i class="fas fa-shopping-cart fa-2x"></i>
+    <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
+  </a>
   </section>
 {% endblock navbar %}
 
 {% block content %}
-
-{% endblock content %}
+  <section class="cart-container">
+    {% for cart_item in cart_items %}
+      <div class="cart-box">
+        <div class="cart-item">
+          <div class="product-name">
+            <h2>{{ cart_item.product.name }}</h2>
+          </div>
+          <div class="product-quantity">
+            <p>Quantity: {{ cart_item.quantity }}</p>
+          </div>
+          <div class="product-price">
+            <h3>Price: {{ cart_item.product.price }}</h3>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endblock %}

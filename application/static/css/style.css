@@ -25,11 +25,63 @@ main {
 .logo {
   max-width: 260px;
   height: auto;
-  margin-right: 660px;
+  margin-right: 140px; /* Adjust the margin to move the logo to the left */
 }
 
+/* Add this CSS to your existing styles */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10%; /* Adjust the margin to move the search bar to the right */
+  background-color: #f0f0f0, 0.1;
+  margin-bottom: 12px; /* Adjust the margin-top to move the search container higher */
+}
+
+.search-container input {
+  padding: 11px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 35px;
+  width: 500px; /* Adjust the width of the search input as needed */
+}
+
+.search-container button.search-btn {
+  position: relative; /* Add this line to make the icon positioning relative to the button */
+  padding: 11px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%; /* Set border-radius to 50% for a perfect circle */
+  background-color: #ffffff, 0.5; /* Background color of the button */
+  cursor: pointer;
+  margin-left: -45px; /* Adjust the margin to overlap the button with the input */
+  width: 40px; /* Set the width of the button */
+  height: 40px; /* Set the height of the button */
+}
+
+.search-container button.search-btn i {
+  position: absolute; /* Add this line to position the icon absolutely within the button */
+  top: 50%; /* Align the top of the icon to the center of the button */
+  left: 50%; /* Align the left of the icon to the center of the button */
+  transform: translate(-50%, -50%); /* Center the icon precisely */
+  color: #555;
+}
+
+.search-container button.search-btn:hover {
+  background-color: #c2c2c2; /* Change the background color on hover */
+}
+
+.search-container button.search-btn:hover i {
+  color: #333; /* Change the color of the icon on hover */
+}
+
+
+
+
+
+
 .navbar {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.6);
   overflow: hidden;
   display: flex;
   align-items:flex-end;
@@ -60,21 +112,325 @@ main {
   border-radius: 70px; /* Adjust the border radius as needed */
 }
 
-/* .navbar #active {
-  border-radius: 10px;
-  background-color: whitesmoke;
-  color: black;
+/* .search-container {
+  display: flex;
+  align-items: center;
+  margin-right: auto; 
+} 
+
+.search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input-field {
+  padding: 11px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 35px;
+  width: 550px;
+  padding-right: 40px;
+}
+
+.button-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  right: 13px;
 } */
 
 footer {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, 0.6);
   color: rgb(57, 55, 55), 0, 0;
   text-align: center;
-  padding: 20px 0;
+  padding: 0px 7;
 }
 
 
 .home-content {
   min-height: 50vh;
+}
+
+.product-name {
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin-bottom: 15px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-actions {
+  margin-top: 10px;
+}
+
+/* Minimalistic Add to Orders button styling */
+.btn-primary {
+  display: block;
+  margin: 0px auto; /* Center the button with some top margin */
+  background-color: #7cc78b; /* Blue color for the button */
+  color: #fff; /* White text color */
+  border: 1px solid #7cc78b; /* Add a small border */
+  padding: 8px 12px; /* Adjust padding for a smaller button */
+  border-radius: 5px; /* Add a small border radius */
+  transition: background-color 0.2s ease-in-out; /* Add smooth transition */
+  text-decoration: none; /* Remove underline */
+  text-align: center; /* Center the text inside the button */
+}
+
+.btn-primary:hover {
+  background-color: #35623e; /* Darker blue on hover */
+  border-color: #35623e; /* Darker border on hover */
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows products to wrap to the next line if there's not enough space */
+  justify-content: space-between; /* Distributes products evenly along the row */
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.product-box {
+  background-color: rgb(255, 255, 255, 0.3); /* Set the product box background color */
+  border-radius: 10px; /* Add rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 10px; /* Adjust the margin between product boxes */
+  padding: 40px; /* Adjust the padding inside the product box */
+  width: calc(25.25% - 40px); /* Adjust the width of each product box */
+}
+
+.customer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-box {
+  background-color: rgb(255, 255, 255, 0.3); 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(65.65% - 10px);
+  box-sizing: border-box;
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.customer-box h2 {
+  color: #333;
+  font-size: 40px; /* Adjust the font size as needed */
+  margin-bottom: 50px; /* Add margin-bottom for spacing */
+  /* margin-bottom: 10px; */
+}
+.customer-box .actions {
+  margin-top: -0px; /* Adjust the margin-top to move the actions lower */
+}
+
+.customer-box p {
+  color: #555;
+  font-size: 18px; /* Adjust the font size as needed */
+  margin-bottom: 10px;
+}
+
+.customer-box a {
+  color: #0048ff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.customer-box a:hover {
+  text-decoration: underline;
+}
+
+.customer-box i.fa-user-circle {
+  color: rgb(134, 134, 134, 0.3); /* Add this line to set the color to grey */
+}
+
+.customer-box ul {
+  list-style: none; /* Remove bullet points */
+}
+
+.customer-box li {
+  margin-bottom: 20px; /* Add some spacing between items */
+}
+
+.vertical-line {
+  border-left: 1px solid #b9b9b9; /* Adjust the color of the vertical line */
+  height: 15px; /* Adjust the height of the vertical line */
+  margin: 0 10px; /* Adjust the spacing around the vertical line */
+  display: inline-block;
+}
+
+
+
+.add-to-order-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green color, you can change it to your preference */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 5px;
+  font-size: 12px;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  line-height: 8px;
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 1575px; /* Adjust the left position as needed */
+
+}
+
+
+/* Add this CSS code to your existing styles or create a new CSS file */
+
+/* Style for Your Cart heading */
+h2 {
+  color: #333; /* Set the color for the heading text */
+}
+
+.cart-box {
+  background-color: rgb(255, 255, 255, 0.3); /* Set the product box background color */
+  border-radius: 10px; /* Add rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 10px auto; 
+  padding: 40px; /* Adjust the padding inside the product box */
+  width: calc(70.70% - 30px); /* Adjust the width of each product box */
+}
+
+/* Style for Cart Container */
+.cart-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows products to wrap to the next line if there's not enough space */
+  justify-content: space-between; /* Distributes products evenly along the row */
+  padding: 20px; /* Add top margin to the cart container */
+}
+
+/* Style for Cart Item */
+/* .cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+} */
+
+/* Style for Product Name */
+.product-name h2 {
+  margin-bottom: 5px; /* Add bottom margin to the product name */
+}
+
+/* Style for Product Quantity and Price */
+.product-quantity p
+{
+  margin: 0; /* Remove any default margin for quantity and price */
+  font-size: 20%;
+}
+
+/* Style for Horizontal Line */
+hr {
+  border: 0;
+  border-top: 1px solid #ddd; /* Add a horizontal line with a light color */
+  margin-top: 5px; /* Add top margin above the horizontal line */
+  margin-bottom: 10px; /* Add bottom margin below the horizontal line */
+}
+
+
+.add-to-order-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.page-item {
+  margin-right: 5px;
+}
+
+.page-link {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+  color: #007bff;
+  background-color: #fff;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+}
+
+/* Adjusted selectors to accommodate classes with spaces */
+.page-item.disabled > .page-link {
+  /* Styles for disabled pagination item */
+  /* display: none  ; */
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: #dee2e6;
+  border-color: #dee2e6;
+}
+
+.page-item.active > .page-link {
+  /* Styles for active pagination item */
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  cursor: default;
+  z-index: 3;
+}
+
+/* Social Icons for footer */
+
+.social-icons a {
+  color: rgb(57, 55, 55), 0, 0;
+  font-size: 1.5rem;
+  text-decoration: none; 
+  /* Add other styling properties as needed */
+}
+
+/* Hover effect for the links */
+.social-icons a:hover {
+  color: #474545; /* Change color on hover if desired */
+  /* Add additional hover effects */
+  text-shadow: 0px 2px black;
+}
+
+@media (max-width: 768px) {
+  .card-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-box {
+    width: 100%;
+  }
 }

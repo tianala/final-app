@@ -1,12 +1,12 @@
 # Order views
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic.list import ListView
-from .forms import CustomerForm, ProductForm, OrderForm, OrderItemForm, ShippingAddressForm, PaymentForm
-from .models import Customer, Product, Order, OrderItem, ShippingAddress, Payment
-# application/views.py
-# application/views.py
-from django.shortcuts import render
+from django.views.generic.detail import DetailView
+from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm, PaymentForm
+from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
+
 
 def home(request):
     return render(request, 'home.html')
@@ -15,32 +15,36 @@ def home(request):
 class CustomerListView(ListView):
     model = Customer
     context_object_name = 'customers'
-    template_name = 'application/customer_list.html'
+    template_name = 'customer_list.html'
     paginate_by = 10
-
+class CustomerDetailView(DetailView):
+    model = Customer
+    template_name = 'customer_detail.html'  # Set the template name as per your project structure
+    context_object_name = 'customer'
+    
 class CustomerCreateView(CreateView):
     model = Customer
     form_class = CustomerForm
-    template_name = 'application/create_customer.html'
+    template_name = 'create_customer.html'
     success_url = reverse_lazy('customer-list')
 
 class CustomerUpdateView(UpdateView):
     model = Customer
     form_class = CustomerForm
-    template_name = 'application/edit_customer.html'
+    template_name = 'edit_customer.html'
     success_url = reverse_lazy('customer-list')
 
 class CustomerDeleteView(DeleteView):
     model = Customer
-    template_name = 'application/delete_customer.html'
+    template_name = 'delete_customer.html'
     success_url = reverse_lazy('customer-list')
     
-
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
     template_name = 'product_list.html'
-    paginate_by = 10
+    paginate_by = 9
+    json_file_path = 'electronics_data.json'
 
 class ProductCreateView(CreateView):
     model = Product
@@ -81,32 +85,40 @@ class OrderDeleteView(DeleteView):
     model = Order
     template_name = 'application/delete_order.html'
     success_url = reverse_lazy('order-list')
+    
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
 
-# OrderItem views
-class OrderItemListView(ListView):
-    model = OrderItem
-    context_object_name = 'order_items'
-    template_name = 'application/orderitem_list.html'
+    # Check if the product is already in the cart
+    cart_item, created = Cart.objects.get_or_create(product=product)
+
+
+    # If the product is already in the cart, increase the quantity
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+
+    return redirect('product-list')  # Adjust the URL name as needed
+
+
+class CartListView(ListView):
+    model = Cart
+    template_name = 'cart_list.html'
+    context_object_name = 'cart_items'
     paginate_by = 10
 
-class OrderItemCreateView(CreateView):
-    model = OrderItem
-    form_class = OrderItemForm
-    template_name = 'application/create_orderitem.html'
-    success_url = reverse_lazy('orderitem-list')
 
-class OrderItemUpdateView(UpdateView):
-    model = OrderItem
-    form_class = OrderItemForm
-    template_name = 'application/edit_orderitem.html'
-    success_url = reverse_lazy('orderitem-list')
+def your_view(request):
+    # Assuming the user is authenticated, you might filter the cart items by user
+    if request.user.is_authenticated:
+        cart_count = Cart.objects.filter(user=request.user).count()
+    else:
+        # If the user is not authenticated, you might be using a session-based cart
+        cart_count = Cart.objects.filter(session_key=request.session.session_key).count()
 
-class OrderItemDeleteView(DeleteView):
-    model = OrderItem
-    template_name = 'application/delete_orderitem.html'
-    success_url = reverse_lazy('orderitem-list')
+    return render(request, 'cart_list.html', {'cart_count': cart_count})
 
-# ShippingAddress views
+    
 class ShippingAddressListView(ListView):
     model = ShippingAddress
     context_object_name = 'shipping_addresses'

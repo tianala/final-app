@@ -1,6 +1,6 @@
 # application/forms.py
 from django import forms
-from .models import Customer, Product, Order, OrderItem, ShippingAddress, Payment
+from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -17,10 +17,6 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ['order_date', 'customer']
 
-class OrderItemForm(forms.ModelForm):
-    class Meta:
-        model = OrderItem
-        fields = ['order', 'product', 'quantity', 'unit_price']
 
 class ShippingAddressForm(forms.ModelForm):
     class Meta:
@@ -31,3 +27,12 @@ class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = ['order', 'payment_date', 'amount', 'payment_method']
+
+class CartForm(forms.ModelForm):
+    class Meta:
+        model = Cart
+        fields = ['product', 'quantity']
+
+
+class CartAddProductForm(forms.Form):
+    quantity = forms.IntegerField(min_value=1, initial=1)

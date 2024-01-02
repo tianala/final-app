@@ -1,0 +1,36 @@
+{
+    "electronic_products": [
+        {
+            "name": "Laptop",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ubuy.com.ph%2Fproduct%2F7NFJ7KW7S-lenovo-ideapad-3i-14-1080p-pc-laptop-intel-core-i5-1235u-8gb-ram-512gb-ssd-windows-11-home-arctic-grey-82rj0007us&psig=AOvVaw3otsbIwXSP2u-KMn-XbsSB&ust=1704148132848000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLjE4NvcuoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Smartphone",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ebay.ph%2Fitm%2F325638773711&psig=AOvVaw3nDa6GngpDuNEUFAgX1qfC&ust=1704148165180000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDUqOvcuoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Smartwatch",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdigitalwalker.ph%2Fproducts%2Ffitbit-sense-smartwatch&psig=AOvVaw3K8jIepaRIltl_65dgIDRK&ust=1704148190735000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjsjPbcuoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Headphones",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apple.com%2Fph%2Fshop%2Fproduct%2FMQTP3PA%2FA%2Fbeats-studio-pro-wireless-headphones-black&psig=AOvVaw165vXQxAuSbb4S3SMEXrcM&ust=1704148214870000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLj-q4LduoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Tablet",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.galleon.ph%2Fappliances-c863%2Fcomputers-accessories-c878%2Ftablets-c2563%2Ftablet-101-inch-android-12-tablet-2023-latest-p45718347&psig=AOvVaw1dvX6YfMks8dHYPW94SN0t&ust=1704148244256000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCYjZPduoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Bluetooth Speaker",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fjblstore.com.ph%2Fproducts%2Fjbl-flip-6-portable-waterproof-speaker-bluetooth&psig=AOvVaw3VPW6tQebtY7moHP1qtZZ2&ust=1704148277644000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPj4uKHduoMDFQAAAAAdAAAAABAD"
+        },
+        {
+            "name": "Gaming Console",
+            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goodhousekeeping.com%2Felectronics%2Fg40729948%2Fbest-game-consoles%2F&psig=AOvVaw0fIVwJ27xLYMrCbyhpF3Wz&ust=1704148303016000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDZ1qvduoMDFQAAAAAdAAAAABAE"
+        },
+        {
+            "name": "4K Smart TV",
+            "image_url": "https://www.samsung.com/ph/tvs/uhd-4k-tv/cu7000-75-inch-crystal-uhd-4k-ua75cu7000gxxp/"
+        }
+    ]
+}
