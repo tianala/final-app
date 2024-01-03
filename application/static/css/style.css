@@ -103,28 +103,20 @@ main {
   background-color: whitesmoke;
   color: black;
   transition: 0.2s ease-in-out;
-  border-radius: 70px; /* Adjust the border radius as needed */
+  border-radius: 70px;
 }
 
-/* Add this to your CSS file or create a new one */
+
+.navbar a.btn.active,
+.navbar a.btn.active-customer,
+.navbar a.btn.active-product,
+.navbar a.btn.active-cart  {
+  background-color: rgba(212, 212, 212, 0.6);
+  color: rgb(68, 67, 67); ;
+  border-radius: 0;
+  width: 100px;
+}
 .additional-bar {
-  height: 50px;
-  background-color: rgba(198, 197, 197, 0.6);
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Adjust the margin as needed */
-  display: flex;
-  align-items: center; /* Center items vertically */
-}
-
-.additional-bar-home {
-  height: 50px;
-  background-color: rgba(198, 197, 197, 0.6);
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Adjust the margin as needed */
-  display: flex;
-  align-items: center; /* Center items vertically */
-}
-.additional-bar-home p {
   height: 50px;
   background-color: rgba(198, 197, 197, 0.6);
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
@@ -134,15 +126,9 @@ main {
 }
 .additional-bar p {
   margin: 0;
-  padding-right: 10px; /* Add right padding to the text */
+  padding-right: 10px;
   margin-left:40px;
   font-size: 120%;
-}
-
-.banner-img {
-  max-width: 100%; /* Ensure the image does not exceed its container */
-  height: auto; /* Maintain aspect ratio */
-  margin: 20px 0; /* Adjust margin as needed */
 }
 
 .product-options {
@@ -150,27 +136,109 @@ main {
 
 }
 
-/* .product-options {
+.banner-img {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  margin-top: -30px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.product-options p {
+.banner-img img {
+  max-width: 97%;
+  max-height: 97%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.additional-bar-home {
+  background-color: rgba(145, 142, 142, 0.6); /* Background color for the additional bar */
+  color: #fff; /* Text color */
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: center;
+  height: 70px;
+}
+
+.additional-bar-home p {
   margin: 0;
-  font-size: 16px;
+  line-height: 2.5; /* Adjust line height for vertical centering */
+  font-size: 130%;
 }
 
-.vertical-line {
-  border-left: 1px solid #333;
-  height: 14px;
-  margin: 0 8px;
+.additional-bar-home i {
+  margin-right: 5px; /* Adjust the margin as needed */
+  font-size: 140%; /* Adjust the icon size as needed */
+}
+
+.vertical-line1 {
   display: inline-block;
+  margin: 0 100px;
+  border-left: 1px solid #fff; /* Vertical line color */
+  height: 19px; /* Adjust the height of the vertical line */
 }
 
-.caret-up-down {
-  margin-left: 4px;
-  cursor: pointer;
+/* Add this to your CSS file */
+/* Add this to your CSS file */
+.home-boxes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+/* .box {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+  width: 800%;
+  margin-right: 23px;
+  margin-left: 23px;
 } */
+
+.highlight-text {
+  font-weight: bold;
+  color: #ff0000; /* Red color, adjust as needed */
+}
+
+.box {
+  background-color: #f2f2f2; /* Grey background color */
+  padding: 10px;
+  text-align: center;
+  width: 25%; /* Adjust the width as needed */
+}
+
+.box p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.bigger-text {
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+.oval-boxes-container {
+  display: flex;
+  justify-content: space-between; /* Adjust the spacing between oval boxes */
+  margin-top: 20px; /* Adjust the space between the two sets of boxes */
+}
+
+.oval-box {
+  width: 350px; /* Adjust the width of oval boxes */
+  height: 55px; /* Adjust the height of oval boxes */
+  background-color: #f2f2f2; /* Grey background color */
+  border-radius: 25px; /* Half of the height to create oval shape */
+  text-align: center;
+  line-height: 50px; /* Match the height to vertically center the text */
+  margin-right: 20px; 
+  margin-left: 20px;
+}
+
+
+
 
 footer {
   width: 100%;
@@ -188,6 +256,21 @@ footer {
 .product-name {
   margin-bottom: 10px;
 }
+.product-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.product-img img {
+  display: block;
+  width: inherit;
+  height: inherit;
+  object-fit: fill;
+}
+
 
 .product-description {
   margin-bottom: 15px;
@@ -231,7 +314,7 @@ footer {
 }
 
 .product-box {
-  background-color: rgb(255, 255, 255, 0.3); /* Set the product box background color */
+  background-color: rgb(255, 255, 255); /* Set the product box background color */
   border-radius: 10px; /* Add rounded corners */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   margin: 10px; /* Adjust the margin between product boxes */

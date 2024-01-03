@@ -20,9 +20,9 @@
     <a href='{% url "product-list" %}' class="btn">
       <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
     </a>
-    <a href="{% url 'cart-list' %}" class="btn">
+    <a href="{% url 'cart-list' %}" class="btn {% if request.path == '/cart-list' %}active-cart{% endif %}">
       <i class="fas fa-shopping-cart fa-2x"></i>
-      <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
+      <span class="cart-count">5</span>
     </a>
   </section>
   <div class="additional-bar"></div>
@@ -36,6 +36,9 @@
           <div class="product-name">
             <h2>{{ cart_item.product.name }}</h2>
           </div>
+          {% comment %} <div class="product-img">
+            <img src="{{ cart_item.product.electronic_product_image.image_url }}" alt="{{ cart_item.product.name }} image">
+          </div> {% endcomment %}
           <div class="product-price">
             <h3>Price: {{ cart_item.product.price }}</h3>
           </div>
@@ -43,7 +46,7 @@
             <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'decrease')">-</button>
             <span class="vertical-line"></span>
             <span id="quantity-{{ cart_item.id }}" class="quantity">{{ cart_item.quantity }}</span>
-                        <span class="vertical-line"></span>
+            <span class="vertical-line"></span>
             <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'increase')">+</button>
           </div>
         </div>

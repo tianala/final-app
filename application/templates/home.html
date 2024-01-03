@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 
-{% load static %} <!-- Add this line to load the static tag -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 {% block navbar %}
   <section class="navbar">
     <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
     
+    <div class="search-container">
+      <input type="text" placeholder="Search...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
 
-<div class="search-container">
-  <input type="text" placeholder="Search...">
-  <button class="search-btn"><i class="fas fa-search"></i></button>
-</div>
-
-
-    <a href='{% url "home" %}' class="btn" id="active">
-      <i class="fas fa-home fa-2x"></i> <!-- Font Awesome home icon with larger size -->
+    <a href='{% url "home" %}' class="btn {% if request.path == '/' %}active{% endif %}">
+      <i class="fas fa-home fa-2x"></i>
     </a>
-    <a href='{% url "customer-list" %}' class="btn">
+    <a href='{% url "customer-list" %}' class="btn" >
       <i class="fas fa-user fa-2x"></i> <!-- Font Awesome user icon with larger size -->
     </a>
     <a href='{% url "product-list" %}' class="btn">
@@ -27,22 +26,71 @@
       <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
     </a>
   </section>
+
   <div class="additional-bar-home">
     <p>
-      FLASH SALES<span class="vertical-line"></span>
-      VOUCHERS<span class="vertical-line"></span>
-      15-DAYS FREE RETURN<span class="vertical-line"></span>
-      E-GIFT CARDS
-  </p>
+      <i class="fas fa-bolt"></i> FLASH SALES<span class="vertical-line1"></span>
+      <i class="fas fa-ticket-alt"></i> VOUCHERS<span class="vertical-line1"></span>
+      <i class="fas fa-clock"></i> 15-DAYS FREE RETURN<span class="vertical-line1"></span>
+      <i class="fas fa-gift"></i> E-GIFT CARDS
+    </p>
   </div>
- 
 {% endblock navbar %}
 
 {% block content %}
   <div class="banner-img">
     <img src="{% static 'png/banner.png' %}" alt="Banner Image">
   </div>
+
+  <div class="home-boxes-container">
+    <div class="box">
+      <p><span class="highlight-text bigger-text">11% OFF</span> <br> ON ORDERS OF 1,199+</p>
+    </div>
+    <div class="box">
+      <p><span class="highlight-text bigger-text">14% OFF</span> <br> ON ORDERS OF 1,899+</p>
+    </div>
+    <div class="box">
+      <p><span class="highlight-text bigger-text">17% OFF</span> <br> ON ORDERS OF 3,499+</p>
+    </div>
+    <div class="box">
+      <p><span class="highlight-text bigger-text">20% OFF</span> <br> ON ORDERS OF 5,399+</p>
+    </div>
+  </div>
+
+  <!-- Add the oval-shaped boxes below -->
+  <div class="oval-boxes-container">
+    <div class="oval-box">
+      <p>Oval Box 1</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 2</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 3</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 4</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 5</p>
+    </div>
+  </div>
+  
+  <div class="oval-boxes-container">
+    <div class="oval-box">
+      <p>Oval Box 6</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 7</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 8</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 9</p>
+    </div>
+    <div class="oval-box">
+      <p>Oval Box 10</p>
+    </div>
+  </div>
 {% endblock %}
-
-<!-- Add another bar after the content -->
-

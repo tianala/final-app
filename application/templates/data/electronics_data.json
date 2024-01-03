@@ -1,36 +1,56 @@
 {
     "electronic_products": [
         {
-            "name": "Laptop",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ubuy.com.ph%2Fproduct%2F7NFJ7KW7S-lenovo-ideapad-3i-14-1080p-pc-laptop-intel-core-i5-1235u-8gb-ram-512gb-ssd-windows-11-home-arctic-grey-82rj0007us&psig=AOvVaw3otsbIwXSP2u-KMn-XbsSB&ust=1704148132848000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLjE4NvcuoMDFQAAAAAdAAAAABAD"
+            "name": "Lenovo ThinkBook 13.3",
+            "image_url": "https://i5.walmartimages.com/seo/Lenovo-IdeaPad-3i-14-Laptop-Intel-Core-i5-1235U-8GB-RAM-512GB-SSD-Windows-11-Home-Arctic-Grey-82RJ0007US_2636a308-dc1c-4235-a1f3-cc826ed59556.6790f1aa7755583035b970d4f8ea4526.jpeg"
         },
         {
-            "name": "Smartphone",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ebay.ph%2Fitm%2F325638773711&psig=AOvVaw3nDa6GngpDuNEUFAgX1qfC&ust=1704148165180000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDUqOvcuoMDFQAAAAAdAAAAABAD"
+            "name": "Samsung Galaxy A23",
+            "image_url": "https://th.bing.com/th/id/OIP.ITYtpZYMltytjbhY4H2uKgHaHa?rs=1&pid=ImgDetMain"
         },
         {
-            "name": "Smartwatch",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdigitalwalker.ph%2Fproducts%2Ffitbit-sense-smartwatch&psig=AOvVaw3K8jIepaRIltl_65dgIDRK&ust=1704148190735000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjsjPbcuoMDFQAAAAAdAAAAABAD"
+            "name": "Samsung Galaxy Watch4 Smartwatch",
+            "image_url": "https://www.amazon.in/images/I/6113mS%2BxhyL._SL1500_.jpg"
         },
         {
-            "name": "Headphones",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.apple.com%2Fph%2Fshop%2Fproduct%2FMQTP3PA%2FA%2Fbeats-studio-pro-wireless-headphones-black&psig=AOvVaw165vXQxAuSbb4S3SMEXrcM&ust=1704148214870000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLj-q4LduoMDFQAAAAAdAAAAABAD"
+            "name": "JBL Tune 510BT Wireless On-Ear Headphones",
+            "image_url": "https://www.bhphotovideo.com/images/images1500x1500/jbl_jblt510btbluam_tune_510bt_wireless_on_ear_1620597.jpg"
         },
         {
-            "name": "Tablet",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.galleon.ph%2Fappliances-c863%2Fcomputers-accessories-c878%2Ftablets-c2563%2Ftablet-101-inch-android-12-tablet-2023-latest-p45718347&psig=AOvVaw1dvX6YfMks8dHYPW94SN0t&ust=1704148244256000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCYjZPduoMDFQAAAAAdAAAAABAD"
+            "name": "Xiaomi Pad 5 Pro",
+            "image_url": "https://www.xiaomihome.es/wp-content/uploads/2021/11/tablet-xiaomi-pad-5-pro.png"
         },
         {
-            "name": "Bluetooth Speaker",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fjblstore.com.ph%2Fproducts%2Fjbl-flip-6-portable-waterproof-speaker-bluetooth&psig=AOvVaw3VPW6tQebtY7moHP1qtZZ2&ust=1704148277644000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPj4uKHduoMDFQAAAAAdAAAAABAD"
+            "name": "JBL Clip 3 Portable Bluetooth Speaker",
+            "image_url": "https://www.cellxpo.com/wp-content/uploads/2019/10/JBLClip3b__10890.1572294138.jpg"
         },
         {
-            "name": "Gaming Console",
-            "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goodhousekeeping.com%2Felectronics%2Fg40729948%2Fbest-game-consoles%2F&psig=AOvVaw0fIVwJ27xLYMrCbyhpF3Wz&ust=1704148303016000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDZ1qvduoMDFQAAAAAdAAAAABAE"
+            "name": "PlayStation PS5 Console System",
+            "image_url": "https://www.itech.ph/wp-content/uploads/2023/03/PS5-Console-System-Disc-Version-Asian-jpg.webp"
         },
         {
-            "name": "4K Smart TV",
-            "image_url": "https://www.samsung.com/ph/tvs/uhd-4k-tv/cu7000-75-inch-crystal-uhd-4k-ua75cu7000gxxp/"
+            "name": "75' Crystal UHD 4K AU7000 Smart TV",
+            "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ph/ua75au7000gxxp/gallery/ph-uhd-au7000-ua75au7000gxxp-426090978?$650_519_PNG$"
+        },
+        {
+            "name": "JBL Wave Beam TWS",
+            "image_url": "https://jblstore.com.ph/cdn/shop/files/JBLWaveBeam_Black_1_600x.png?v=1688295640"
+        },
+        {
+            "name": "Brother DCP-T520W Ink Tank Printer",
+            "image_url": "https://www.officewarehouse.com.ph/__resources/_web_data_/products/products/images/6318.jpg"
+        },
+        {
+            "name": "Logitech K380 Multi-Device Bluetooth Keyboard",
+            "image_url": "https://www.jbhifi.com.au/cdn/shop/products/883772-Product-0-I_8219157f-8905-4659-be14-bc1ba032d9b8_1024x1024.png"
+        },
+        {
+            "name": "Huawei Band 8 Sakura Pink Health and Fitness Tracker",
+            "image_url": "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/8/188439_2023_2.jpg"
+        },
+        {
+            "name": "Seagate Basic 1TB Mobile External Hard Drive",
+            "image_url": "https://i.ebayimg.com/images/g/~loAAOSwfVVf9ery/s-l1200.webp"
         }
     ]
 }

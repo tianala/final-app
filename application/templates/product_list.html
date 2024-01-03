@@ -17,9 +17,10 @@
     <a href='{% url "customer-list" %}' class="btn">
       <i class="fas fa-user fa-2x"></i> <!-- Font Awesome user icon with larger size -->
     </a>
-    <a href='{% url "product-list" %}' class="btn">
-      <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
+    <a href="{% url 'product-list' %}" class="btn {% if request.path == '/product-list' %}active-product{% endif %}">
+      <i class="fas fa-box fa-2x"></i>
     </a>
+    
     <a href="{% url 'cart-list' %}" class="btn">
       <i class="fas fa-shopping-cart fa-2x"></i>
       <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
@@ -48,12 +49,22 @@
           <div class="product-name">
             <h2>{{ product.name }}</h2>
           </div>
+
+          <div class="product-img">
+            {% for electronic_product_image in electronic_product_images %}
+            {% if electronic_product_image.name == product.name %}
+            <img src={{electronic_product_image.image_url}} alt="an image of {{electronic_product_image.name}}">
+            {% endif %}
+            {% endfor %}
+          </div>
           <div class="product-description">
             <p>{{ product.description }}</p>
           </div>
+          <hr>
           <div class="product-price">
             <h3>Price: {{ product.price }}</h3>
           </div>
+          <hr>
           <div class="product-actions">
             <a href="{% url 'add-to-cart' product.id %}" class="btn btn-primary btn-sm">Add to Cart</a>
         </div>

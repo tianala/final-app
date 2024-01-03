@@ -7,6 +7,7 @@ from django.views.generic.detail import DetailView
 from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm, PaymentForm
 from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
 from django.http import JsonResponse
+import json
 
 
 def home(request):
@@ -45,7 +46,19 @@ class ProductListView(ListView):
     context_object_name = 'products'
     template_name = 'product_list.html'
     paginate_by = 12
-    json_file_path = 'electronics_data.json'
+    # json_file_path = 'electronics_data.json'
+    json_file_path = 'application/templates/data/electronics_data.json'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        electronic_product_images = self.get_electronic_product_images()
+        context['electronic_product_images'] = electronic_product_images
+        return context
+
+    def get_electronic_product_images(self):
+        with open(self.json_file_path, 'r') as file:
+            data = json.load(file)
+            return data.get('electronic_products', [])
 
 class ProductCreateView(CreateView):
     model = Product
