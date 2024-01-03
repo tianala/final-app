@@ -27,13 +27,21 @@
       <span class="cart-count">5</span> <!-- Replace 5 with the hardcoded value for testing -->
     </a>
   </section>
-  <!-- First bar after the navbar -->
-  <div class="additional-bar"></div>
-  <!-- Add other content or bars as needed -->
+  <div class="additional-bar-home">
+    <p>
+      FLASH SALES<span class="vertical-line"></span>
+      VOUCHERS<span class="vertical-line"></span>
+      15-DAYS FREE RETURN<span class="vertical-line"></span>
+      E-GIFT CARDS
+  </p>
+  </div>
+ 
 {% endblock navbar %}
 
 {% block content %}
-  <!-- Content block -->
+  <div class="banner-img">
+    <img src="{% static 'png/banner.png' %}" alt="Banner Image">
+  </div>
 {% endblock %}
 
 <!-- Add another bar after the content -->
