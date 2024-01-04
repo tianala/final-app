@@ -8,7 +8,6 @@ from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm, Pa
 from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
 from django.http import JsonResponse
 import json
-from .models import ElectronicProductImage
 
 
 def home(request):
@@ -41,41 +40,14 @@ class CustomerDeleteView(DeleteView):
     model = Customer
     template_name = 'delete_customer.html'
     success_url = reverse_lazy('customer-list')
-
-
-def customer_detail(request, customer_id):
-    customer = get_object_or_404(Customer, id=customer_id)
-    return render(request, 'customer_detail.html', {'customer': customer})
-
-def edit_customer(request, customer_id):
-    customer = get_object_or_404(Customer, id=customer_id)
-
-    if request.method == 'POST':
-        # Handle form submission and update the customer data
-        # ...
-
-        return redirect('customer-detail', customer_id=customer_id)
-
-    return render(request, 'edit_customer.html', {'customer': customer})
-
-def delete_customer(request, customer_id):
-    customer = get_object_or_404(Customer, id=customer_id)
-
-    if request.method == 'POST':
-        # Handle customer deletion
-        customer.delete()
-        return redirect('customer-list')
-
-    return render(request, 'delete_customer.html', {'customer': customer})
-
- 
+    
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
     template_name = 'product_list.html'
     paginate_by = 12
     # json_file_path = 'electronics_data.json'
-    json_file_path = '/application/templates/data/electronics_data.json'
+    json_file_path = 'application/templates/data/electronics_data.json'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -143,62 +115,16 @@ def add_to_cart(request, product_id):
     return redirect('product-list')  # Adjust the URL name as needed
 
 
-# views.py
 class CartListView(ListView):
     model = Cart
     template_name = 'cart_list.html'
     context_object_name = 'cart_items'
     paginate_by = 10
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        product_images = self.get_product_images()
-        context['product_images'] = product_images
-        return context
-
-    def get_product_images(self):
-        product_images = []
-        for cart_item in self.object_list:
-            if (
-                hasattr(cart_item.product, 'electronic_product_image')
-                and cart_item.product.electronic_product_image
-            ):
-                product_images.append(cart_item.product.electronic_product_image.image_url)
-            else:
-                # Handle the case where 'Product' has no 'electronic_product_image' or it's None
-                product_images.append(None)
-        return product_images
-
-
-
-# class CartListView(ListView):
-#     model = Cart
-#     template_name = 'cart_list.html'
-#     context_object_name = 'cart_items'
-#     paginate_by = 10
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         product_images = self.get_product_images()
-#         context['product_images'] = product_images
-#         return context
-
-#     def get_product_images(self):
-#         product_images = []
-#         for cart_item in self.object_list:
-#             if hasattr(cart_item.product, 'image'):
-#                 product_images.append(cart_item.product.image.url)
-#             else:
-#                 # Handle the case where 'Product' has no 'image' attribute
-#                 product_images.append(None)
-#         return product_images
-
-    
 def decrease_quantity(request, cart_item_id):
     # Implement the logic to decrease the quantity for the specified cart item
     # Update your Cart model or session accordingly
     return JsonResponse({'success': True})
-
 
 def increase_quantity(request, cart_item_id):
     # Implement the logic to increase the quantity for the specified cart item
@@ -217,10 +143,18 @@ def your_view(request):
     return render(request, 'cart_list.html', {'cart_count': cart_count})
 
     
+def shipping_address_detail(request, shipping_address_id):
+    shipping_address = ShippingAddress.objects.get(id=shipping_address_id)
+    return render(request, 'shipping_address.html', {'shipping_address': shipping_address})
+
+class ShippingAddressDetailView(DetailView):
+    model = ShippingAddress
+    template_name = 'shippingaddress_detail.html'  # replace with your template file name
+    context_object_name = 'shipping_address'
 class ShippingAddressListView(ListView):
     model = ShippingAddress
     context_object_name = 'shipping_addresses'
-    template_name = 'application/shippingaddress_list.html'
+    template_name = 'shippingaddress_list.html'
     paginate_by = 10
 
 class ShippingAddressCreateView(CreateView):

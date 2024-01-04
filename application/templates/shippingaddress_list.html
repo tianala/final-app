@@ -1,15 +1,16 @@
-{% extends 'application/base.html' %}
-
-{% block title %}Shipping Address List{% endblock %}
+<!-- shippingaddress_list.html -->
+{% extends 'base.html' %}
 
 {% block content %}
-    {% include 'application/menu.html' %}
-    <h2>Shipping Address List</h2>
-    <ul>
-        {% for shipping_address in shipping_addresses %}
-            <li>{{ shipping_address.order }} - Address: {{ shipping_address.address }}</li>
-        {% endfor %}
-    </ul>
-    {% include 'application/pagination.html' %}
-    {% include 'application/footer.html' %}
+  <h2>Shipping Addresses</h2>
+  <ul>
+    {% for shipping_address in shipping_addresses %}
+      <li>
+        <a href="{% url 'shippingaddress-detail' shipping_address.id %}">
+          {{ shipping_address.address }}, {{ shipping_address.city }}, {{ shipping_address.state }},
+          {{ shipping_address.zipcode }}, {{ shipping_address.country }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock %}

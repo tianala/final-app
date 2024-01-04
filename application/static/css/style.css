@@ -131,9 +131,32 @@ main {
   font-size: 120%;
 }
 
-.product-options {
-  margin-left:700px;
+.product-options p {
+  margin-left: 670px;
 
+}
+
+.product-options i {
+  margin-left: 7px;
+}
+
+.cart-options p {
+    margin-left: 900px;
+
+}
+
+.cart-options i {
+  margin-right: 7px;
+}
+
+
+
+
+
+.cart-options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .banner-img {

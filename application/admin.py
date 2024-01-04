@@ -16,7 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(ShippingAddress)
 class ShippingAddressAdmin(admin.ModelAdmin):
-    list_display = ['order', 'address', 'city', 'state', 'zipcode', 'country']
+    list_display = [ 'address', 'city', 'state', 'zipcode', 'country']
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):

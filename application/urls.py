@@ -4,8 +4,8 @@ from .views import (
     home, CustomerListView, CustomerCreateView, CustomerUpdateView, CustomerDeleteView,
     ProductListView, ProductCreateView, ProductUpdateView, ProductDeleteView,
     OrderListView, OrderCreateView, OrderUpdateView, OrderDeleteView, CustomerDetailView,
-    ShippingAddressListView, ShippingAddressCreateView, ShippingAddressUpdateView, ShippingAddressDeleteView,
-    PaymentListView, PaymentCreateView, PaymentUpdateView, PaymentDeleteView, CartListView, customer_detail, edit_customer, delete_customer
+    ShippingAddressListView, ShippingAddressCreateView, ShippingAddressUpdateView, ShippingAddressDeleteView, ShippingAddressDetailView,
+    PaymentListView, PaymentCreateView, PaymentUpdateView, PaymentDeleteView, CartListView
 )
 
 urlpatterns = [
@@ -15,9 +15,6 @@ urlpatterns = [
     path('customers/<int:pk>/edit/', CustomerUpdateView.as_view(), name='edit-customer'),
     path('customers/<int:pk>/delete/', CustomerDeleteView.as_view(), name='delete-customer'),
     path('customers/<int:pk>/', CustomerDetailView.as_view(), name='customer-detail'),
-    path('customer/<int:customer_id>/', views.customer_detail, name='customer-detail'),
-    path('customer/<int:customer_id>/edit/', views.edit_customer, name='edit-customer'),
-    path('customer/<int:customer_id>/delete/', views.delete_customer, name='delete-customer'),
     
     path('products/', ProductListView.as_view(), name='product-list'),
     path('products/create/', ProductCreateView.as_view(), name='create-product'),
@@ -38,6 +35,7 @@ urlpatterns = [
 
     # ShippingAddress URLs
     path('shippingaddresses/', ShippingAddressListView.as_view(), name='shippingaddress-list'),
+        path('shipping-address/<int:shipping_address_id>/', ShippingAddressDetailView.as_view(), name='shippingaddress-detail'),
     path('shippingaddresses/create/', ShippingAddressCreateView.as_view(), name='create-shippingaddress'),
     path('shippingaddresses/<int:pk>/edit/', ShippingAddressUpdateView.as_view(), name='edit-shippingaddress'),
     path('shippingaddresses/<int:pk>/delete/', ShippingAddressDeleteView.as_view(), name='delete-shippingaddress'),

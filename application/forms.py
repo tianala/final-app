@@ -21,7 +21,7 @@ class OrderForm(forms.ModelForm):
 class ShippingAddressForm(forms.ModelForm):
     class Meta:
         model = ShippingAddress
-        fields = ['order', 'address', 'city', 'state', 'zipcode', 'country']
+        fields = ['address', 'city', 'state', 'zipcode', 'country']
 
 class PaymentForm(forms.ModelForm):
     class Meta:
