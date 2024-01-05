@@ -1,9 +1,53 @@
 {% extends 'base.html' %}
 
+{% load static %} <!-- Add this line to load the static tag -->
+
+{% block navbar %}
+  <section class="navbar">
+    <img src="{% static 'png/logo.png' %}" alt="Logo" class="logo">
+
+    <div class="search-container">
+      <input type="text" placeholder="Search...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <a href='{% url "home" %}' class="btn" id="active">
+      <i class="fas fa-home fa-2x"></i> <!-- Font Awesome home icon with larger size -->
+    </a>
+    <a href='{% url "customer-list" %}' class="btn">
+      <i class="fas fa-user fa-2x"></i> <!-- Font Awesome user icon with larger size -->
+    </a>
+    <a href='{% url "product-list" %}' class="btn">
+      <i class="fas fa-box fa-2x"></i> <!-- Font Awesome box icon with larger size -->
+    </a>
+    <a href="{% url 'cart-list' %}" class="btn home-icon">
+      <i class="fas fa-shopping-cart fa-2x"></i>
+    </a>
+  </section>
+  <div class="additional-bar">
+    <p>Items in your Cart</p>
+    <div class="cart-options">
+      <p>
+        <a href='{% url "shippingaddress-list" %}' class="no-decoration black-link">  
+          <i class="fas fa-map-marker-alt"></i> Shipping Address
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="vertical-line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='{% url "order-list" %}' class="no-decoration black-link"> 
+          <i class="fas fa-shopping-bag"></i> Orders
+        </a>
+      </p>
+    </div>
+  </div>
+    
+
+
+  </div>
+  {% endblock navbar %}
+
 {% block content %}
-    <div class="address-container">
     {% for shipping_address in shipping_addresses %}
-        <div class="address-box">
+    <div class="address-container">
+    <div class="address-box">
           <i class="fas fa-user-circle fa-5x" style="float: left; margin-right: 20px;"></i> <!-- Font Awesome user circle icon -->
           <div style="float: left;">
             <strong style="font-size: 20px;">{{ shipping_address.address }}</strong> - <span style="font-size: 22px;">{{ shipping_address.city }} - <span style="font-size: 22px;">{{ shipping_address.state }} - <span style="font-size: 22px;">{{ shipping_address.zipcode }} - <span style="font-size: 22px;">{{ shipping_address.country }}</span><br>
@@ -23,8 +67,9 @@
               </a>
               </div>
             </div> 
+            <div style="clear: both;"></div> <!-- Clear the float to prevent layout issues -->
             </div>
-</div>
+            </div>
         {% endfor %}
 
 {% endblock %}
