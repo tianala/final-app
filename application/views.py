@@ -177,25 +177,26 @@ class ShippingAddressDetailView(DetailView):
     model = ShippingAddress
     template_name = 'shippingaddress_detail.html'  # replace with your template file name
     context_object_name = 'shipping_address'
+    
 class ShippingAddressListView(ListView):
     model = ShippingAddress
     context_object_name = 'shipping_addresses'
     template_name = 'shippingaddress_list.html'
     paginate_by = 10
 
-class ShippingAddressCreateView(CreateView):
-    model = ShippingAddress
-    form_class = ShippingAddressForm
-    template_name = 'application/create_shippingaddress.html'
-    success_url = reverse_lazy('shippingaddress-list')
+# class ShippingAddressCreateView(CreateView):
+#     model = ShippingAddress
+#     form_class = ShippingAddressForm
+#     template_name = 'application/create_shippingaddress.html'
+#     success_url = reverse_lazy('shippingaddress-list')
 
 class ShippingAddressUpdateView(UpdateView):
     model = ShippingAddress
     form_class = ShippingAddressForm
-    template_name = 'application/edit_shippingaddress.html'
+    template_name = 'shippingaddress_edit.html'
     success_url = reverse_lazy('shippingaddress-list')
 
 class ShippingAddressDeleteView(DeleteView):
     model = ShippingAddress
-    template_name = 'application/delete_shippingaddress.html'
+    template_name = 'shippingaddress_del.html'
     success_url = reverse_lazy('shippingaddress-list')

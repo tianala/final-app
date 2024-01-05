@@ -1,16 +1,13 @@
-<!-- shippingaddress_detail.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Shipping Address Details</h2>
-  <ul>
-    <li><strong>Order:</strong> {{ shipping_address.order }}</li>
-    <li><strong>Address:</strong> {{ shipping_address.address }}</li>
-    <li><strong>City:</strong> {{ shipping_address.city }}</li>
-    <li><strong>State:</strong> {{ shipping_address.state }}</li>
-    <li><strong>Zipcode:</strong> {{ shipping_address.zipcode }}</li>
-    <li><strong>Country:</strong> {{ shipping_address.country }}</li>
-    <!-- Add other details as needed -->
-  </ul>
-  <a href="{% url 'shippingaddress-list' %}">Back to Shipping Addresses</a>
+  <h2>Shipping Address Detail</h2>
+  <p>
+    Address: {{ shipping_address.address }},<br>
+    City: {{ shipping_address.city }},<br>
+    State: {{ shipping_address.state }},<br>
+    Zipcode: {{ shipping_address.zipcode }},<br>
+    Country: {{ shipping_address.country }}
+  </p>
+  <a href="{% url 'shippingaddress-list'%}">Back</a>
 {% endblock %}

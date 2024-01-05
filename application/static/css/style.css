@@ -467,6 +467,64 @@ footer {
   transition: background-color 0.3s;
 }
 
+.address-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.address-box {
+  background-color: rgb(255, 255, 255, 0.3); 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(65.65% - 10px);
+  box-sizing: border-box;
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.address-box h2 {
+  color: #333;
+  font-size: 40px; /* Adjust the font size as needed */
+  margin-bottom: 50px; /* Add margin-bottom for spacing */
+  /* margin-bottom: 10px; */
+}
+.address-box .actions {
+  margin-top: -0px; /* Adjust the margin-top to move the actions lower */
+}
+
+.address-box p {
+  color: #555;
+  font-size: 18px; /* Adjust the font size as needed */
+  margin-bottom: 10px;
+}
+
+.address-box a {
+  color: #0048ff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.address-box a:hover {
+  text-decoration: underline;
+}
+
+.address-box i.fa-user-circle {
+  color: rgb(134, 134, 134, 0.3); /* Add this line to set the color to grey */
+}
+
+.address-box ul {
+  list-style: none; /* Remove bullet points */
+}
+
+.address-box li {
+  margin-bottom: 20px; /* Add some spacing between items */
+}
+
 /* Add this CSS code to your existing styles or create a new CSS file */
 
 /* Style for Your Cart heading */
@@ -485,8 +543,8 @@ h2 {
 }
 
 .product-img1 img {
-  max-width: 11%; /* Make the image responsive within its container */
-  max-height: 11%;
+  max-width: 9%; /* Make the image responsive within its container */
+  max-height: 9%;
   margin-right: 20px; /* Add some space between the image and product info */
   margin-top: -20px;
 }
@@ -498,7 +556,7 @@ h2 {
 .product-info h2,
 .product-info h3 {
   margin-left: 140px; /* Remove default margin for h2 and h3 */
-  margin-top: -70px;
+  margin-top: -60px;
 }
 
 .quantity-container {

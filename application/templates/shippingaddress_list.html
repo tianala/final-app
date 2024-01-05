@@ -1,13 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Shipping Addresses</h2>
-  <ul>
+    <div class="address-container">
     {% for shipping_address in shipping_addresses %}
-      <li>
-          {{ shipping_address.address }}, {{ shipping_address.city }}, {{ shipping_address.state }},
-          {{ shipping_address.zipcode }}, {{ shipping_address.country }}
-      </li>
-    {% endfor %}
-  </ul>
+        <div class="address-box">
+          <i class="fas fa-user-circle fa-5x" style="float: left; margin-right: 20px;"></i> <!-- Font Awesome user circle icon -->
+          <div style="float: left;">
+            <strong style="font-size: 20px;">{{ shipping_address.address }}</strong> - <span style="font-size: 22px;">{{ shipping_address.city }} - <span style="font-size: 22px;">{{ shipping_address.state }} - <span style="font-size: 22px;">{{ shipping_address.zipcode }} - <span style="font-size: 22px;">{{ shipping_address.country }}</span><br>
+            <a href="{% url 'shippingaddress-detail' shipping_address.id%}">
+              <div class = "option-icon">
+                <i class="fas fa-eye" title="View" style="font-size: 20px; color: grey;"></i>
+              </a>
+              <span class="vertical-line"></span>
+              <a href="{% url 'shippingaddress-edit' shipping_address.id %}">
+                &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-edit" title="Edit" style="font-size: 20px; color: grey;"></i>
+              </a>
+              <span class="vertical-line"></span>
+              <a href="{% url 'shippingaddress-del' shipping_address.id %}">
+                &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-trash-alt" title="Delete" style="font-size: 20px; color: grey;"></i>
+              </a>
+              </div>
+            </div> 
+            </div>
+</div>
+        {% endfor %}
+
 {% endblock %}
+
+{% comment %} <div class="customer-container">
+  {% for customer in customers %}
+    <div class="customer-box">
+      <i class="fas fa-user-circle fa-5x" style="float: left; margin-right: 20px;"></i> <!-- Font Awesome user circle icon -->
+      <div style="float: left;">
+        <strong style="font-size: 20px;">{{ customer.name }}</strong> - <span style="font-size: 22px;">{{ customer.email }}</span><br>
+        <a href="{% url 'customer-detail' customer.id %}">
+          <div class = "option-icon">
+          <i class="fas fa-eye" title="View" style="font-size: 20px; color: grey;"></i>
+        </a>
+        <span class="vertical-line"></span>
+        <a href="{% url 'edit-customer' customer.id %}">
+          &nbsp;&nbsp;&nbsp;
+          <i class="fas fa-edit" title="Edit" style="font-size: 20px; color: grey;"></i>
+        </a>
+        <span class="vertical-line"></span>
+        <a href="{% url 'delete-customer' customer.id %}">
+          &nbsp;&nbsp;&nbsp;
+          <i class="fas fa-trash-alt" title="Delete" style="font-size: 20px; color: grey;"></i>
+        </a>
+        </div>
+      </div>  {% endcomment %}
