@@ -1,6 +1,6 @@
 # application/forms.py
 from django import forms
-from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
+from .models import Customer, Product, Order, ShippingAddress, Cart
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -22,11 +22,6 @@ class ShippingAddressForm(forms.ModelForm):
     class Meta:
         model = ShippingAddress
         fields = ['address', 'city', 'state', 'zipcode', 'country']
-
-class PaymentForm(forms.ModelForm):
-    class Meta:
-        model = Payment
-        fields = ['order', 'payment_date', 'amount', 'payment_method']
 
 class CartForm(forms.ModelForm):
     class Meta:

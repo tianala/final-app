@@ -284,7 +284,7 @@ align-items: center;
 }
 .oval-box p{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .oval-image {
@@ -475,7 +475,7 @@ h2 {
 }
 
 .cart-box {
-  background-color: rgb(255, 255, 255, 0.3); /* Set the product box background color */
+  background-color: rgba(255, 255, 255); /* Set the product box background color */
   border-radius: 10px; /* Add rounded corners */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   margin: 10px auto; 
@@ -483,6 +483,35 @@ h2 {
   width: calc(70.70% - 40px); /* Adjust the width of each product box */
   height: 130px;
 }
+
+.product-img1 img {
+  max-width: 11%; /* Make the image responsive within its container */
+  max-height: 11%;
+  margin-right: 20px; /* Add some space between the image and product info */
+  margin-top: -20px;
+}
+
+.product-info {
+  flex: 1; /* Allow product info to take remaining space */
+}
+
+.product-info h2,
+.product-info h3 {
+  margin-left: 140px; /* Remove default margin for h2 and h3 */
+  margin-top: -70px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center; /* Center items vertically within the quantity container */
+  margin-bottom: 70px;
+}
+
+.quantity-btn {
+  margin-right: 5px; /* Add some space between quantity buttons */
+  margin-top: -70px;
+}
+
 
 /* Style for Cart Container */
 .cart-container {

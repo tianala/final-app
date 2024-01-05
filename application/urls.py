@@ -5,7 +5,7 @@ from .views import (
     ProductListView, ProductCreateView, ProductUpdateView, ProductDeleteView,
     OrderListView, OrderCreateView, OrderUpdateView, OrderDeleteView, CustomerDetailView,
     ShippingAddressListView, ShippingAddressCreateView, ShippingAddressUpdateView, ShippingAddressDeleteView, ShippingAddressDetailView,
-    PaymentListView, PaymentCreateView, PaymentUpdateView, PaymentDeleteView, CartListView
+    CartListView
 )
 
 urlpatterns = [
@@ -39,9 +39,4 @@ urlpatterns = [
     # path('shippingaddresses/create/', ShippingAddressCreateView.as_view(), name='create-shippingaddress'),
     # path('shippingaddresses/<int:pk>/edit/', ShippingAddressUpdateView.as_view(), name='edit-shippingaddress'),
     # path('shippingaddresses/<int:pk>/delete/', ShippingAddressDeleteView.as_view(), name='delete-shippingaddress'),
-
-    path('payments/', PaymentListView.as_view(), name='payment-list'),
-    path('payments/create/', PaymentCreateView.as_view(), name='create-payment'),
-    path('payments/<int:pk>/edit/', PaymentUpdateView.as_view(), name='edit-payment'),
-    path('payments/<int:pk>/delete/', PaymentDeleteView.as_view(), name='delete-payment'),
 ]

@@ -45,12 +45,3 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return f"ShippingAddress {self.id} - {self.order}"
-
-class Payment(BaseModel):
-    order = models.OneToOneField(Order, on_delete=models.CASCADE)
-    payment_date = models.DateField()
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    payment_method = models.CharField(max_length=255)
-
-    def __str__(self):
-        return f"Payment {self.id} - {self.order}"

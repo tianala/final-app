@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm, PaymentForm
-from .models import Customer, Product, Order, ShippingAddress, Payment, Cart
+from .forms import CustomerForm, ProductForm, OrderForm, ShippingAddressForm
+from .models import Customer, Product, Order, ShippingAddress, Cart
 from django.http import JsonResponse
 import json
 
@@ -120,17 +120,42 @@ class CartListView(ListView):
     model = Cart
     template_name = 'cart_list.html'
     context_object_name = 'cart_items'
+    json_file_path = 'application/templates/data/electronics_data.json'
     paginate_by = 10
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        electronic_product_images = self.get_electronic_product_images()
+        context['electronic_product_images'] = electronic_product_images
+        return context
+
+    def get_electronic_product_images(self):
+        with open(self.json_file_path, 'r') as file:
+            data = json.load(file)
+            return data.get('electronic_products', [])
+
 def decrease_quantity(request, cart_item_id):
-    # Implement the logic to decrease the quantity for the specified cart item
-    # Update your Cart model or session accordingly
-    return JsonResponse({'success': True})
+    try:
+        cart_item = Cart.objects.get(id=cart_item_id)
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
+            cart_item.save()
+            return JsonResponse({'success': True, 'quantity': cart_item.quantity})
+        else:
+            cart_item.delete()
+            return JsonResponse({'success': True, 'quantity': 0})
+    except Cart.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Cart item not found'})
 
 def increase_quantity(request, cart_item_id):
-    # Implement the logic to increase the quantity for the specified cart item
-    # Update your Cart model or session accordingly
-    return JsonResponse({'success': True})
+    try:
+        cart_item = Cart.objects.get(id=cart_item_id)
+        cart_item.quantity += 1
+        cart_item.save()
+        return JsonResponse({'success': True, 'quantity': cart_item.quantity})
+    except Cart.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Cart item not found'})
+
 
 
 def your_view(request):
@@ -174,27 +199,3 @@ class ShippingAddressDeleteView(DeleteView):
     model = ShippingAddress
     template_name = 'application/delete_shippingaddress.html'
     success_url = reverse_lazy('shippingaddress-list')
-
-# Payment views
-class PaymentListView(ListView):
-    model = Payment
-    context_object_name = 'payments'
-    template_name = 'application/payment_list.html'
-    paginate_by = 10
-
-class PaymentCreateView(CreateView):
-    model = Payment
-    form_class = PaymentForm
-    template_name = 'application/create_payment.html'
-    success_url = reverse_lazy('payment-list')
-
-class PaymentUpdateView(UpdateView):
-    model = Payment
-    form_class = PaymentForm
-    template_name = 'application/edit_payment.html'
-    success_url = reverse_lazy('payment-list')
-
-class PaymentDeleteView(DeleteView):
-    model = Payment
-    template_name = 'application/delete_payment.html'
-    success_url = reverse_lazy('payment-list')

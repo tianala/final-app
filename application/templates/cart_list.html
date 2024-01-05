@@ -49,80 +49,54 @@
     {% for cart_item in cart_items %}
       <div class="cart-box">
         <div class="cart-item">
-          <div class="product-name">
-            <h2>{{ cart_item.product.name }}</h2>
+          <div class="product-img1">
+            {% for electronic_product_image in electronic_product_images %}
+              {% if electronic_product_image.name == cart_item.product.name %}
+                <img src="{{ electronic_product_image.image_url }}" alt="{{ electronic_product_image.name }} image">
+              {% endif %}
+            {% endfor %}
           </div>
-          <div class="product-price">
-            <h3>Price: {{ cart_item.product.price }}</h3>
-          </div>
-          <div class="quantity-container">
-            <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'decrease')">-</button>
-            <span class="vertical-line"></span>
-            <span id="quantity-{{ cart_item.id }}" class="quantity">{{ cart_item.quantity }}</span>
-            <span class="vertical-line"></span>
-            <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'increase')">+</button>
+
+          <div class="product-info">
+            <div class="product-price">
+              <h3>Price: {{ cart_item.product.price }}</h3>
+            </div>
+            <div class="product-name">
+              <h2>{{ cart_item.product.name }}</h2>
+            </div>
+            <div class="quantity-container">
+              <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'decrease')">-</button>
+              <span class="vertical-line"></span>
+              <span id="quantity-{{ cart_item.id }}" class="quantity">{{ cart_item.quantity }}</span>
+              <span class="vertical-line"></span>
+              <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'increase')">+</button>
+            </div>
           </div>
         </div>
       </div>
     {% endfor %}
   </section>
   <script>
-    const initialQuantities = {
-      {% for cart_item in cart_items %}
-        "{{ cart_item.id }}": {{ cart_item.quantity }},
-      {% endfor %}
-    };
-
-    // Initialize quantities with the initial values
-    document.addEventListener('DOMContentLoaded', function () {
-      // Fetch the current state of the cart from the server
-      fetch('/get-cart-state/', { method: 'GET' })
-        .then(response => response.json())
-        .then(cartState => {
-          // Update the quantities in the DOM based on the retrieved cart state
-          for (const cartItemId in cartState) {
-            const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
-            if (quantityElement) {
-              quantityElement.innerText = cartState[cartItemId];
-            }
-          }
-        })
-        .catch(error => console.error('Error:', error));
-    });
-    
     function updateQuantity(cartItemId, action) {
-      // Make an AJAX request to the appropriate Django view based on the action
       const url = action === 'decrease' ? `/decrease-quantity/${cartItemId}/` : `/increase-quantity/${cartItemId}/`;
-    
+  
       fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': '{{ csrf_token }}',
-        },
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}',
+          },
       })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            // Update the quantity in the DOM
-            const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
-            const currentQuantity = parseInt(quantityElement.innerText);
-    
-            // Check if the new quantity is greater than zero before updating the DOM
-            const newQuantity = action === 'decrease' ? currentQuantity - 1 : currentQuantity + 1;
-            if (newQuantity > 0) {
-              quantityElement.innerText = newQuantity;
-            } else {
-              // If the new quantity is zero or negative, remove the cart box from the DOM
-              const cartBox = document.querySelector(`.cart-box[data-cart-item-id="${cartItemId}"]`);
-              if (cartBox) {
-                cartBox.remove();
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
+                  quantityElement.innerText = data.quantity;
+              } else {
+                  console.error('Error:', data.error);
               }
-            }
-          }
-        })
-        .catch(error => console.error('Error:', error));
-    }
-    
+          })
+          .catch(error => console.error('Error:', error));
+  }
   </script>
 {% endblock %}
