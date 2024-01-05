@@ -283,7 +283,7 @@ main {
 }
 .oval-box p{
     font-weight: bold;
-    font-size: 100px;
+    font-size: 25px;
 }
 
 .oval-image {
@@ -335,7 +335,7 @@ footer {
 
 .rating {
   color: #ffd700; /* Set the color of filled stars to yellow */
-  font-size: 24px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
 }
 
 .rating .far {

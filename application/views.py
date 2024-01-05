@@ -48,6 +48,7 @@ class ProductListView(ListView):
     paginate_by = 12
     # json_file_path = 'electronics_data.json'
     json_file_path = 'application/templates/data/electronics_data.json'
+    # 'home/tianala28/final-app/application/templates/data/electronics_data.json'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
