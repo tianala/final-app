@@ -14,7 +14,7 @@
     <a href='{% url "home" %}' class="btn" id="active">
       <i class="fas fa-home fa-2x"></i> <!-- Font Awesome home icon with larger size -->
     </a>
-    <a href='{% url "customer-list" %}' class="btn {% if request.path == 'customer-list' %}active-customer{% endif %}">
+    <a href='{% url "customer-list" %}' class="btn home-icon">
       <i class="fas fa-user fa-2x"></i>
     </a>
     <a href='{% url "product-list" %}' class="btn">

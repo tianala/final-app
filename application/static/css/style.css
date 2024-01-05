@@ -87,11 +87,16 @@ main {
   height: 80px; /* Adjust the height as needed */
 }
 
+.navbar .home-icon {
+    color: #000; /* Set the color to black */
+    font-size: 1.3em; /* Set the desired font size */
+  }
+
 .navbar a {
   margin: 0 43px; /* Adjust the margin for spaces between buttons */
   float: none;
   display: inline-block;
-  color: rgb(68, 67, 67); /* Set the color to grey */
+  color: rgb(101, 101, 101); /* Set the color to grey */
   padding: 20px 10px;
   text-decoration: none;
   border: 2px solid transparent;
@@ -104,17 +109,6 @@ main {
   color: black;
   transition: 0.2s ease-in-out;
   border-radius: 70px;
-}
-
-
-.navbar a.btn.active,
-.navbar a.btn.active-customer,
-.navbar a.btn.active-product,
-.navbar a.btn.active-cart  {
-  background-color: rgba(212, 212, 212, 0.6);
-  color: rgb(68, 67, 67); ;
-  border-radius: 0;
-  width: 100px;
 }
 .additional-bar {
   height: 50px;
@@ -465,24 +459,6 @@ footer {
   text-decoration: none;
   transition: background-color 0.3s;
 }
-
-.cart-count {
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 5px 5px;
-  font-size: 12px;
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  text-align: center;
-  line-height: 8px;
-  position: absolute;
-  top: 10px; /* Adjust the top position as needed */
-  left: 1575px; /* Adjust the left position as needed */
-
-}
-
 
 /* Add this CSS code to your existing styles or create a new CSS file */
 
