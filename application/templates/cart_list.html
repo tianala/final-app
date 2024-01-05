@@ -58,12 +58,13 @@
           </div>
 
           <div class="product-info">
-            <div class="product-price">
-              <h3>Price: {{ cart_item.product.price }}</h3>
-            </div>
             <div class="product-name">
               <h2>{{ cart_item.product.name }}</h2>
             </div>
+            <div class="product-price">
+              <p><span class="unbold-text">Price:</span> {{ cart_item.product.price }}</p>
+            </div>          
+
             <div class="quantity-container">
               <button class="quantity-btn" onclick="updateQuantity({{ cart_item.id }}, 'decrease')">-</button>
               <span class="vertical-line"></span>

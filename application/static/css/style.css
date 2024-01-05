@@ -553,21 +553,30 @@ h2 {
   flex: 1; /* Allow product info to take remaining space */
 }
 
-.product-info h2,
-.product-info h3 {
+.product-info h2{
   margin-left: 140px; /* Remove default margin for h2 and h3 */
   margin-top: -60px;
 }
 
+.product-price p{
+  margin-left: 140px;
+  margin-top: -10px;
+  font-size: 17px;
+
+}
+
+.unbold-text {
+  font-weight: normal;
+}
 .quantity-container {
   display: flex;
   align-items: center; /* Center items vertically within the quantity container */
-  margin-bottom: 70px;
+  margin-top: -100px;
 }
 
 .quantity-btn {
   margin-right: 5px; /* Add some space between quantity buttons */
-  margin-top: -70px;
+  margin-top: -100px;
 }
 
 
