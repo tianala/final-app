@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Order List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Customer</th>
+        <!-- Add more headers for additional fields if needed -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.order_date }}</a></td>
+          <td>{{ order.customer }}</td>
+          <!-- Add more columns for additional fields if needed -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

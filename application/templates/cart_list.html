@@ -26,21 +26,19 @@
   </section>
   <div class="additional-bar">
     <p>Items in your Cart</p>
-<!-- cart_options in your existing template -->
-<div class="cart-options">
-  <p>
-    <a href="{% if shipping_address_id %}{% url 'shipping-address-detail' shipping_address_id %}{% endif %}">
-      {% if shipping_address_id %}
-        <i class="fas fa-map-marker-alt"></i> Shipping Address
-      {% else %}
-        <span><i class="fas fa-map-marker-alt"></i> Shipping Address</span>
-      {% endif %}
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="vertical-line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <i class="fas fa-shopping-bag"></i> Orders
-  </p>
-</div>
-
+    <div class="cart-options">
+      <p>
+        <a href='{% url "shippingaddress-list" %}' class="no-decoration black-link">  
+          <i class="fas fa-map-marker-alt"></i> Shipping Address
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="vertical-line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='{% url "order-list" %}' class="no-decoration black-link"> 
+          <i class="fas fa-shopping-bag"></i> Orders
+        </a>
+      </p>
+    </div>
+  </div>
+    
 
 
   </div>
@@ -54,9 +52,6 @@
           <div class="product-name">
             <h2>{{ cart_item.product.name }}</h2>
           </div>
-          {% comment %} <div class="product-img">
-            <img src="{{ cart_item.product.electronic_product_image.image_url }}" alt="{{ cart_item.product.name }} image">
-          </div> {% endcomment %}
           <div class="product-price">
             <h3>Price: {{ cart_item.product.price }}</h3>
           </div>
@@ -72,27 +67,62 @@
     {% endfor %}
   </section>
   <script>
-    function updateQuantity(cartItemId, action) {
-        // Make an AJAX request to the appropriate Django view based on the action
-        const url = action === 'decrease' ? `/decrease-quantity/${cartItemId}/` : `/increase-quantity/${cartItemId}/`;
+    const initialQuantities = {
+      {% for cart_item in cart_items %}
+        "{{ cart_item.id }}": {{ cart_item.quantity }},
+      {% endfor %}
+    };
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}',
-            },
+    // Initialize quantities with the initial values
+    document.addEventListener('DOMContentLoaded', function () {
+      // Fetch the current state of the cart from the server
+      fetch('/get-cart-state/', { method: 'GET' })
+        .then(response => response.json())
+        .then(cartState => {
+          // Update the quantities in the DOM based on the retrieved cart state
+          for (const cartItemId in cartState) {
+            const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
+            if (quantityElement) {
+              quantityElement.innerText = cartState[cartItemId];
+            }
+          }
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Update the quantity in the DOM
-                    const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
-                    const currentQuantity = parseInt(quantityElement.innerText);
-                    quantityElement.innerText = action === 'decrease' ? currentQuantity - 1 : currentQuantity + 1;
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error:', error));
+    });
+    
+    function updateQuantity(cartItemId, action) {
+      // Make an AJAX request to the appropriate Django view based on the action
+      const url = action === 'decrease' ? `/decrease-quantity/${cartItemId}/` : `/increase-quantity/${cartItemId}/`;
+    
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}',
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Update the quantity in the DOM
+            const quantityElement = document.querySelector(`#quantity-${cartItemId}`);
+            const currentQuantity = parseInt(quantityElement.innerText);
+    
+            // Check if the new quantity is greater than zero before updating the DOM
+            const newQuantity = action === 'decrease' ? currentQuantity - 1 : currentQuantity + 1;
+            if (newQuantity > 0) {
+              quantityElement.innerText = newQuantity;
+            } else {
+              // If the new quantity is zero or negative, remove the cart box from the DOM
+              const cartBox = document.querySelector(`.cart-box[data-cart-item-id="${cartItemId}"]`);
+              if (cartBox) {
+                cartBox.remove();
+              }
+            }
+          }
+        })
+        .catch(error => console.error('Error:', error));
     }
+    
   </script>
 {% endblock %}

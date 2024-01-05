@@ -1,4 +1,3 @@
-<!-- shippingaddress_list.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -6,10 +5,8 @@
   <ul>
     {% for shipping_address in shipping_addresses %}
       <li>
-        <a href="{% url 'shippingaddress-detail' shipping_address.id %}">
           {{ shipping_address.address }}, {{ shipping_address.city }}, {{ shipping_address.state }},
           {{ shipping_address.zipcode }}, {{ shipping_address.country }}
-        </a>
       </li>
     {% endfor %}
   </ul>

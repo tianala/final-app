@@ -135,22 +135,29 @@ main {
 }
 
 .cart-options p {
-    margin-left: 900px;
+  margin-left: 900px;
+  color: black;
 
 }
 
 .cart-options i {
-  margin-right: 7px;
+margin-right: 7px;
+color: black;
 }
 
-
-
-
-
 .cart-options {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+color: black;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.black-link {
+  color: black;
 }
 
 .banner-img {
@@ -277,7 +284,7 @@ main {
 }
 .oval-box p{
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .oval-image {

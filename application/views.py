@@ -81,7 +81,7 @@ class ProductDeleteView(DeleteView):
 class OrderListView(ListView):
     model = Order
     context_object_name = 'orders'
-    template_name = 'application/order_list.html'
+    template_name = 'order_list.html'
     paginate_by = 10
 
 class OrderCreateView(CreateView):

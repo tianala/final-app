@@ -35,12 +35,11 @@ urlpatterns = [
 
     # ShippingAddress URLs
     path('shippingaddresses/', ShippingAddressListView.as_view(), name='shippingaddress-list'),
-        path('shipping-address/<int:shipping_address_id>/', ShippingAddressDetailView.as_view(), name='shippingaddress-detail'),
-    path('shippingaddresses/create/', ShippingAddressCreateView.as_view(), name='create-shippingaddress'),
-    path('shippingaddresses/<int:pk>/edit/', ShippingAddressUpdateView.as_view(), name='edit-shippingaddress'),
-    path('shippingaddresses/<int:pk>/delete/', ShippingAddressDeleteView.as_view(), name='delete-shippingaddress'),
+    path('shipping-address/<int:shipping_address_id>/', ShippingAddressDetailView.as_view(), name='shippingaddress-detail'),
+    # path('shippingaddresses/create/', ShippingAddressCreateView.as_view(), name='create-shippingaddress'),
+    # path('shippingaddresses/<int:pk>/edit/', ShippingAddressUpdateView.as_view(), name='edit-shippingaddress'),
+    # path('shippingaddresses/<int:pk>/delete/', ShippingAddressDeleteView.as_view(), name='delete-shippingaddress'),
 
-    # Payment URLs
     path('payments/', PaymentListView.as_view(), name='payment-list'),
     path('payments/create/', PaymentCreateView.as_view(), name='create-payment'),
     path('payments/<int:pk>/edit/', PaymentUpdateView.as_view(), name='edit-payment'),
