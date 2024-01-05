@@ -1,24 +1,107 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Edit Shipping Address</h2>
-  <form method="post" action="{% url 'shippingaddress-edit' shippingaddress.id %}">
-    {% csrf_token %}
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" value="{{ shipping_address.address }}" required><br>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120vh;
+      margin: 0;
+      background-color: #f8f9fa; /* Set a light background color */
+    }
 
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" value="{{ shipping_address.city }}" required><br>
+    .edit-address {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-    <label for="state">State:</label>
-    <input type="text" id="state" name="state" value="{{ shipping_address.state }}" required><br>
+    h2 {
+      color: #007bff; /* Set a primary color for the heading */
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
 
-    <label for="zipcode">Zipcode:</label>
-    <input type="text" id="zipcode" name="zipcode" value="{{ shipping_address.zipcode }}" required><br>
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    <label for="country">Country:</label>
-    <input type="text" id="country" name="country" value="{{ shipping_address.country }}" required><br>
+    label {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #333; /* Set a slightly darker color for labels */
+    }
 
-    <input type="submit" value="Save Changes">
-  </form>
+    input {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    a {
+      margin-top: 20px;
+      width: 50%;
+      background-color: #007bff; /* Set a primary color for buttons */
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    input[type="submit"]:hover,
+    a:hover {
+      background-color: #0056b3; /* Darken the background on hover */
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #fff; /* White background for "Back" */
+      color: #007bff; /* Set a primary color for "Back" text */
+      border: 1px solid #007bff; /* Set border color */
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    a:hover {
+      background-color: #007bff; /* Darken the background on hover */
+      color: #fff; /* Change text color on hover */
+    }
+  </style>
+
+  <div class="edit-address">
+    <h2>Edit Shipping Address</h2>
+    <form method="post" action="{% url 'shippingaddress-edit' shippingaddress.id %}">
+      {% csrf_token %}
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" value="{{ shipping_address.address }}" required>
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" value="{{ shipping_address.city }}" required>
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" value="{{ shipping_address.state }}" required>
+
+      <label for="zipcode">Zipcode:</label>
+      <input type="text" id="zipcode" name="zipcode" value="{{ shipping_address.zipcode }}" required>
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" value="{{ shipping_address.country }}" required>
+
+      <input type="submit" value="Save Changes">
+      <a href="{% url 'shippingaddress-list'%}">Back</a>
+    </form>
+  </div>
 {% endblock %}

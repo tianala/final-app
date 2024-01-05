@@ -1,13 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Shipping Address Detail</h2>
-  <p>
-    Address: {{ shipping_address.address }},<br>
-    City: {{ shipping_address.city }},<br>
-    State: {{ shipping_address.state }},<br>
-    Zipcode: {{ shipping_address.zipcode }},<br>
-    Country: {{ shipping_address.country }}
-  </p>
-  <a href="{% url 'shippingaddress-list'%}">Back</a>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120vh;
+      margin: 0;
+      background-color: #f8f9fa; /* Set a light background color */
+    }
+
+    .address-detail {
+      margin-top: 120px;
+      text-align: center;
+      padding: 50px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #007bff; /* Set a primary color for the heading */
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+      border: 1px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a:hover {
+      background-color: #0056b3; /* Darken the background on hover */
+      color: #fff;
+    }
+
+    a + a {
+      margin-left: 10px;
+    }
+  </style>
+
+  <div class="address-detail">
+    <h2>Shipping Address Detail</h2>
+    <p>
+      Address: {{ shipping_address.address }},<br>
+      City: {{ shipping_address.city }},<br>
+      State: {{ shipping_address.state }},<br>
+      Zipcode: {{ shipping_address.zipcode }},<br>
+      Country: {{ shipping_address.country }}
+    </p>
+    <a href="{% url 'shippingaddress-list'%}">Back</a>
+  </div>
 {% endblock %}
