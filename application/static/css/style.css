@@ -281,6 +281,10 @@ main {
   margin-right: 20px;
   margin-left: 20px;
 }
+.oval-box p{
+    font-weight: bold;
+    font-size: 100px;
+}
 
 .oval-image {
   width: 50px;
@@ -327,6 +331,15 @@ footer {
 
 .product-description {
   margin-bottom: 15px;
+}
+
+.rating {
+  color: #ffd700; /* Set the color of filled stars to yellow */
+  font-size: 24px; /* Adjust the font size as needed */
+}
+
+.rating .far {
+  color: #c0c0c0; /* Set the color of outlined stars to grey */
 }
 
 .product-price {
