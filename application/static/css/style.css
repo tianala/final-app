@@ -25,7 +25,7 @@ main {
 .logo {
   max-width: 260px;
   height: auto;
-  margin-right: 100px;
+  margin-right: 60px;
 }
 
 
@@ -283,7 +283,7 @@ main {
 }
 .oval-box p{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .oval-image {
@@ -314,7 +314,7 @@ footer {
   margin-bottom: 10px;
 }
 .product-img {
-  width: 300px;
+  width: 290px;
   height: 300px;
   border-radius: 8px;
   margin-bottom: 20px;
