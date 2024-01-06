@@ -25,7 +25,7 @@
     </a>
   </section>
   <div class="additional-bar">
-    <p>Items in your Cart</p>
+    <p>Pending Orders</p>
     <div class="cart-options">
       <p>
         <a href='{% url "shippingaddress-list" %}' class="no-decoration black-link">  
@@ -45,27 +45,16 @@
   {% endblock navbar %}
 
 {% block content %}
-  <div class="customer-container">
-    <div class="customer-box">
-  <table>
-    <thead>
-      <tr>
-        <th>Order Date</th>
-        <th>Customer</th>
-        <!-- Add more headers for additional fields if needed -->
-      </tr>
-    </thead>
-    <tbody>
+<div class="customer-container">
+  <div class="customer-box" style="font-size: 18px; color: black;">
+    {% for order in orders %}
+      <p>
+        Order Date: {{ order.order_date }}
+        <br>
+        Customer: {{ order.customer }}
+      </p>
+    {% endfor %}
+  </div>
+</div>
 
-      {% for order in orders %}
-        <tr>
-          <td>{{ order.order_date }}</a></td>
-          <td>{{ order.customer }}</td>
-          <!-- Add more columns for additional fields if needed -->
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-</div>
 {% endblock %}

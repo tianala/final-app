@@ -447,6 +447,25 @@ footer {
   margin-bottom: 20px; /* Add some spacing between items */
 }
 
+.customer1-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.customer1-box {
+  background-color: rgb(255, 255, 255, 0.3); 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(65.65% - 10px);
+  box-sizing: border-box;
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+}
 .vertical-line {
   border-left: 1px solid #b9b9b9; /* Adjust the color of the vertical line */
   height: 15px; /* Adjust the height of the vertical line */
